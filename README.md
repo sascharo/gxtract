@@ -108,7 +108,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
     
     This approach reads the API key from your system environment variables:
     
-    ```jsonc
+    ```json
     "env": {
         "GROUNDX_API_KEY": "${env:GROUNDX_API_KEY}"
     }
@@ -118,7 +118,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
     
     VS Code can prompt for your API key and store it securely. Add this to your `settings.json`:
     
-    ```jsonc
+    ```json
     "inputs": [
       {
         "type": "promptString",
@@ -131,7 +131,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
     
     Then reference it in your server configuration:
     
-    ```jsonc
+    ```json
     "env": {
         "GROUNDX_API_KEY": "${input:groundx-api-key}"
     }
@@ -141,7 +141,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
 
 4.  **Configure VS Code `settings.json`:**
     Open your VS Code `settings.json` file (Ctrl+Shift+P, then search for "Preferences: Open User Settings (JSON)"). Add or update the `mcp.servers` configuration:
-    ```jsonc
+    ```javascript
     "mcp": {
         "servers": {
            "gxtract": { // You can name this server entry as you like, i.e. GXtract
@@ -170,7 +170,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
     }
     ```
     If using Option 2 (secure inputs), add this section (`settings.json`):
-    ```jsonc
+    ```javascript
     // 💡 Only needed for Option 2 (secure inputs)
     "inputs": [
         {
