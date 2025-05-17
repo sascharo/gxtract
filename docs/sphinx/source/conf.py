@@ -31,6 +31,7 @@ extensions = [
     "myst_parser",  # For Markdown support
     "sphinx_copybutton",  # For copy buttons on code blocks
     "sphinx_autodoc_typehints",  # Added for better typehint rendering
+    "sphinxcontrib.mermaid",  # For architecture diagrams
 ]
 
 templates_path = ["_templates"]

@@ -11,6 +11,7 @@ GXtract is a Model Context Protocol (MCP) server designed to integrate with VS C
 ## Table of Contents
 
 - [Features](#features)
+- [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
 - [Installing UV](#installing-uv)
 - [Quick Start: VS Code Integration](#quick-start-vs-code-integration)
@@ -39,6 +40,46 @@ GXtract is a Model Context Protocol (MCP) server designed to integrate with VS C
 *   **Efficient and Modern:** Developed with Python 3.12+ and FastMCP v2 for performance.
 *   **Easy to Configure:** Simple setup for VS Code.
 *   **Caching:** In-memory cache for GroundX metadata to improve performance and reduce API calls.
+
+## Architecture
+
+The high-level system architecture of GXtract illustrates how the components interact:
+
+```mermaid
+graph TB
+    subgraph "Client"
+        VSC[VS Code / Editor]
+    end
+
+    subgraph "GXtract MCP Server"
+        MCP[MCP Interface<br>stdio/http]
+        Server[GXtract Server]
+        Cache[Metadata Cache]
+        Tools[Tool Implementations]
+    end
+
+    subgraph "External Services"
+        GXAPI[GroundX API]
+    end
+
+    VSC -->|MCP Protocol| MCP
+    MCP --> Server
+    Server --> Tools
+    Tools -->|Query| GXAPI
+    Tools -->|Read/Write| Cache
+    Cache -.->|Refresh| GXAPI
+```
+
+This diagram shows:
+
+1. **Client Integration**: VS Code communicates with GXtract using the MCP protocol
+2. **Transport Layer**: Supports both stdio (for direct VS Code integration) and HTTP transport
+3. **Core Components**: Server manages tool registration and requests
+4. **Caching Layer**: Maintains metadata to reduce API calls
+5. **Tool Implementation**: Provides specialized functions for interacting with GroundX
+6. **API Communication**: Secure connection to GroundX platform
+
+For more detailed architecture information, see the [full documentation](https://sascharo.github.io/gxtract/architecture.html).
 
 ## Prerequisites
 

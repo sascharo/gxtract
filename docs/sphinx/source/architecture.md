@@ -2,6 +2,80 @@
 
 This document outlines the architecture of the GXtract MCP server.
 
+## System Overview
+
+The high-level architecture of GXtract illustrates how different components interact:
+
+```{mermaid}
+graph TB
+    subgraph "Client"
+        VSC[VS Code / Editor]
+    end
+
+    subgraph "GXtract MCP Server"
+        MCP[MCP Interface<br>stdio/http]
+        Server[GXtract Server]
+        Cache[Metadata Cache]
+        Tools[Tool Implementations]
+    end
+
+    subgraph "External Services"
+        GXAPI[GroundX API]
+    end
+
+    VSC -->|MCP Protocol| MCP
+    MCP --> Server
+    Server --> Tools
+    Tools -->|Query| GXAPI
+    Tools -->|Read/Write| Cache
+    Cache -.->|Refresh| GXAPI
+```
+
+### Detailed Component View
+
+For a more detailed look at how the components interact internally:
+
+```{mermaid}
+flowchart TD
+    CLI[CLI Entry Point<br>main.py] --> Config[Config<br>config.py]
+    CLI --> ServerInit[Server Initialization<br>server.py]
+    Config --> ServerInit
+    
+    ServerInit --> FastMCP[FastMCP<br>Instance]
+    ServerInit --> Transport[Transport<br>stdio/http]
+    ServerInit --> ToolRegistry[Tool<br>Registration]
+    
+    subgraph "Tool Modules"
+        GroundX[GroundX Tools<br>groundx.py]
+        CacheMgmt[Cache Management<br>cache_management.py]
+        OtherTools[Other Tools<br>...]
+    end
+    
+    ToolRegistry --> GroundX
+    ToolRegistry --> CacheMgmt
+    ToolRegistry --> OtherTools
+    
+    GroundX --> CacheModule[Cache<br>cache.py]
+    CacheMgmt --> CacheModule
+    
+    CacheModule --> GXClient[GroundX Client<br>groundx SDK]
+    GroundX --> GXClient
+    
+    Transport --> FastMCP
+    FastMCP --> ToolRegistry
+    
+    GXClient -->|API Calls| GXAPI[GroundX API]
+```
+
+The diagram above shows the main components of the GXtract system:
+
+1. **Client Layer**: VS Code or other compatible editors that communicate with GXtract
+2. **MCP Interface**: Handles MCP protocol communication (via stdio or HTTP)
+3. **GXtract Server**: Core server component managing tool registration and requests
+4. **Tools**: Specialized implementations for various GroundX operations
+5. **Cache**: In-memory storage for GroundX metadata to improve performance
+6. **GroundX API**: External service providing document understanding capabilities
+
 ## Core Components
 
 GXtract is built upon several key components and libraries:
