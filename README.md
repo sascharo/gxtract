@@ -141,7 +141,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
 
 4.  **Configure VS Code `settings.json`:**
     Open your VS Code `settings.json` file (Ctrl+Shift+P, then search for "Preferences: Open User Settings (JSON)"). Add or update the `mcp.servers` configuration:
-    ```javascript
+    ```jsonc
     "mcp": {
         "servers": {
            "gxtract": { // You can name this server entry as you like, i.e. GXtract
@@ -156,7 +156,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
                     "run",
                     "gxtract", // This matches the script name in pyproject.toml
                     "--transport",
-                    "stdio" // Ensure this matches the "type" above
+                    "stdio" // 💡 Ensure this matches the "type" above
                 ],
                 "env": {
                     // Option 1: Using environment variables (system-wide)
@@ -170,7 +170,7 @@ This should display version 0.7.5 or higher. For more information about UV, visi
     }
     ```
     If using Option 2 (secure inputs), add this section (`settings.json`):
-    ```javascript
+    ```jsonc
     // 💡 Only needed for Option 2 (secure inputs)
     "inputs": [
         {
