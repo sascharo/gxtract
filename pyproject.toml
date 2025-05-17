@@ -1,7 +1,7 @@
 [project]
 name = "gxtract"
 version = "0.3.0"
-description = "GXtract MCP Server for VS Code and other editors; provides tools for interacting with GroundX."
+description = "GXtract MCP Server for VS Code, forks and other editors. Provides tools for interacting with GroundX."
 authors = [
     { name = "Sascha Roman Robitzki" },
 ]
