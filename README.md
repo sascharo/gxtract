@@ -1,5 +1,6 @@
 # GXtract MCP Server
 
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://sascharo.github.io/gxtract/)
 [![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
 [![UV Version](https://img.shields.io/badge/uv-0.7.5+-green.svg)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
