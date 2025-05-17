@@ -1,0 +1,17 @@
+{
+    "label": "GXtract Inspector (HTTP)",
+    "url": "http://localhost:8080", // Default, adjust if your server runs on a different port
+    "server_command": [
+        "powershell.exe",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/run_server.ps1",
+        "--transport",
+        "http",
+        "--port",
+        "8080"
+    ],
+    "server_startup_timeout": 20000, // milliseconds
+    "tool_method_glob_exclude": []
+}

@@ -1,0 +1,111 @@
+[project]
+name = "gxtract"
+version = "0.3.0"
+description = "GXtract MCP Server for VS Code and other editors; provides tools for interacting with GroundX."
+authors = [
+    { name = "Sascha Roman Robitzki" },
+]
+license = { text = "GPL-3.0-only" }
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Text Editors :: Integrated Development Environments (IDE)",
+]
+
+dependencies = [
+    "fastmcp>=2.3.4",
+    "groundx>=2.3.0",
+    "hatch>=1.14.1",
+]
+
+[project.scripts]
+gxtract = "gxtract.main:cli_entry_point"
+
+[project.urls]
+Homepage = "https://github.com/sascharo"
+Documentation = "https://sascharo.github.io/gxtract/"
+Repository = "https://github.com/sascharo/gxtract"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/gxtract/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+# Configuration for source distributions (sdist)
+# Often, defaults are fine; exclude can be useful
+# exclude = [ ".git", ".github", "docs", "tests" ] # Example
+
+[tool.hatch.build.targets.wheel]
+# Configuration for wheel distributions
+# packages = ["src/gxtract"] # Explicitly define packages if not auto-detected
+# Often, defaults are fine
+# Ensure `src/gxtract/__init__.py` has `__version__` for `hatch.version` to work
+
+[tool.hatch.envs.default]
+description = "Default development environment"
+dependencies = [
+  "furo>=2024.8.6",
+  "linkify-it-py>=2.0.3", # For myst-parser linkify extension
+  "mypy>=1.15.0",
+  "myst-parser>=4.0.1",
+  "pyclean>=3.1.0",
+  "pytest>=8.3.5",
+  "pytest-asyncio>=0.26.0",
+  "ruff>=0.11.10",
+  "sphinx>=8.2.3",
+  "sphinx-autodoc-typehints>=3.2.0",
+  "sphinx-copybutton>=0.5.2",
+  "sphinx-rtd-theme>=3.0.2",
+]
+
+[tool.hatch.envs.default.scripts]
+# Linting and formatting
+lint = "ruff check src tests"
+format = "ruff format src tests"
+check = [
+  "lint",
+  "format",
+]
+
+# Testing
+test = "pytest {args:tests}"
+cov = "pytest --cov=gxtract --cov-report=term-missing --cov-report=xml {args:tests} # Example with coverage"
+
+# Documentation
+docs-build = "sphinx-build docs/sphinx/source docs/sphinx/build/html {args}"
+docs-serve = "python -m http.server --bind 127.0.0.1 --directory docs/sphinx/build/html {args:8000}"
+docs-clean = "python -c \"import shutil; shutil.rmtree('docs/sphinx/build', ignore_errors=True)\""
+
+# Type checking
+typecheck = "mypy src"
+
+[tool.uv]
+# UV (>=0.7.5) specific configurations can go here if needed in the future
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "W", "I", "UP", "ASYNC", "N", "Q"]
+ignore = ["E501"] # Let black handle line length formatting if preferred for some cases
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+# Specific lint rule configurations
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true # Can be set to false for stricter checks
+disallow_untyped_defs = true
