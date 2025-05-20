@@ -12,3 +12,6 @@ wheels/
 # Sphinx documentation build output
 docs/sphinx/build/
 docs/_build/
+
+# Knowledge graph memory server
+.memory/

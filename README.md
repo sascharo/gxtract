@@ -1,8 +1,12 @@
 # GXtract MCP Server
 
+<div style="text-align: left;">
+  <img src="docs/sphinx/source/_static/images/gxtract-logo.png" alt="GXtract Logo" width="200"/>
+</div>
+
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://sascharo.github.io/gxtract/)
 [![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
-[![UV Version](https://img.shields.io/badge/uv-0.7.5+-green.svg)](https://github.com/astral-sh/uv)
+[![UV Version](https://img.shields.io/badge/uv-0.7.6+-green.svg)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -84,12 +88,12 @@ For more detailed architecture information, see the [full documentation](https:/
 ## Prerequisites
 
 *   **Python 3.12 or higher.**
-*   **UV (Python package manager):** Version 0.7.5 or higher. You can install it from [astral.sh/uv](https://astral.sh/uv).
+*   **UV (Python package manager):** Version 0.7.6 or higher. You can install it from [astral.sh/uv](https://astral.sh/uv).
 *   **GroundX API Key:** You need a valid API key from the [GroundX Dashboard](https://dashboard.groundx.ai/).
 
 ## Installing UV
 
-Before you can use GXtract, you need to install UV (version 0.7.5 or higher), a modern Python package manager written in Rust that offers significant performance improvements over traditional tools.
+Before you can use GXtract, you need to install UV (version 0.7.6 or higher), a modern Python package manager written in Rust that offers significant performance improvements over traditional tools.
 
 ### Quick Installation Methods
 
@@ -125,7 +129,7 @@ After installation, verify that UV is working correctly:
 uv --version
 ```
 
-This should display version 0.7.5 or higher. For more information about UV, visit the [official documentation](https://docs.astral.sh/uv/).
+This should display version 0.7.6 or higher. For more information about UV, visit the [official documentation](https://docs.astral.sh/uv/).
 
 ## Quick Start: VS Code Integration
 

@@ -91,7 +91,7 @@ docs-clean = "python -c \"import shutil; shutil.rmtree('docs/sphinx/build', igno
 typecheck = "mypy src"
 
 [tool.uv]
-# UV (>=0.7.5) specific configurations can go here if needed in the future
+# UV (>=0.7.6) specific configurations can go here if needed in the future
 
 [tool.ruff]
 line-length = 120

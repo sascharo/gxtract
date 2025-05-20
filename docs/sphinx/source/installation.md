@@ -5,7 +5,7 @@ This guide will walk you through installing GXtract and its dependencies.
 ## Prerequisites
 
 *   **Python 3.12.10** or later.
-*   **UV (Python Package Manager)**: Version 0.7.5 or as specified in `pyproject.toml`. If you don\'t have UV, you can install it by following the instructions on the [official UV website](https://github.com/astral-sh/uv).
+*   **UV (Python Package Manager)**: Version 0.7.6 or as specified in `pyproject.toml`. If you don\'t have UV, you can install it by following the instructions on the [official UV website](https://github.com/astral-sh/uv).
 *   **Git** (for cloning the repository).
 
 ## Installation Steps

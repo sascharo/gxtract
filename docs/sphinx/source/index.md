@@ -1,5 +1,7 @@
 # Welcome to GXtract's documentation!
 
+<img src="/_static/images/gxtract-logo.png" alt="GXtract Logo" width="200" />
+
 GXtract is a powerful and flexible Model Context Protocol (MCP) server with seamless GroundX tool integration. It enables efficient extraction of architectural and implementation details from various document types, with a focus on scientific papers and research articles.
 
 This server is built with performance, scalability, and ease of use in mind, leveraging Python 3.12+, `asyncio`, and the FastMCP v2 library.
